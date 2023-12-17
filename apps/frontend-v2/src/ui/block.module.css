@@ -1,0 +1,32 @@
+/* .container {
+  gap: 0px 0px;
+  overflow: hidden;
+} */
+
+.mainElement {
+  display: flex;
+  padding: 5%;
+  width: var(--block-width);
+  margin-right: 5%;
+  margin-left: 20%;
+  margin-bottom: 3%;
+  margin-top: 8%;
+  border: var(--border);
+
+  /* height: auto; */
+  /* max-height: max-content; */
+  background-color: var(--color-light-grey);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow);
+}
+
+.txt {
+  color: var(--color-dark-grey);
+}
+
+.titleFixed {
+  position: fixed;
+  /* left: 0;
+  top: 0;
+  bottom: 0; */
+}

@@ -1,0 +1,31 @@
+.cardContainer {
+  display: flex;
+  margin-left: 8px;
+  padding: 5px;
+  border-left: 3px solid var(--color-dark-grey);
+  margin: 5px;
+}
+
+.cardContent {
+  flex: 1;
+}
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cardTitle {
+  padding-bottom: 10px;
+  width: auto;
+}
+
+.cardIcon {
+  margin-left: auto;
+  color: var(--color-dark-grey);
+  font-size: large;
+}
+
+.cardChildren {
+}

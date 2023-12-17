@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Condensed:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Poppins&family=Roboto+Condensed:wght@300&display=swap");
+
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Supprime les marges par défaut appliquées à certains éléments */
+body,
+h1,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--color-background);
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  /* box-sizing: border-box; */
+}
+
+:root {
+  --color-primary-foreground: #fff;
+
+  --greyPrimary: #a5a5a5;
+
+  --color-primary: #719ba6a9;
+  --color-success: #5fc891;
+  --color-light-grey: #f5faf9;
+  --color-background: #eef3f5;
+  --color-dark-grey: rgb(100, 100, 100);
+
+  --radius-small: 3px;
+  --radius-medium: 6px;
+  --radius-large: 12px;
+
+  --sideBar-width: 15%;
+  --navBar-width: 17%;
+  --block-width: auto;
+
+  --border: 1px solid var(--color-dark-grey);
+
+  --shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(102, 103, 104, 0.15) 0px 1px 3px 1px;
+
+  /* --shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
+  --shadow-right: 5px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cardChildren a {
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+  background: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(100, 100, 100);
+  border-radius: 20px;
+  /* border: 7px solid #ddd; */
+}
+
+/* Redimensionne toutes les images pour occuper 100% de leur conteneur */
+/* img {
+  max-width: 100%;
+  height: auto;
+} */
