@@ -1,9 +1,12 @@
 import Block from "@/ui/block"
+import RecipeForm from "@/ui/forms/recipeForm"
 
 const AdvancedIndex: React.FC = () => {
   return (
     <div>
-      <Block></Block>
+      <Block title="Your Title" secondTitle="Your Second Title">
+        <RecipeForm />
+      </Block>
     </div>
   )
 }
