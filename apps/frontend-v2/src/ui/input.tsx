@@ -8,9 +8,9 @@ interface InputProps {
   type?: string
   name?: string
   value?: string
-  onChange: (
-    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => void
+  // onChange: (
+  //   event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  // ) => void
   icon?: string
   error?: {
     name: string
@@ -20,7 +20,7 @@ interface InputProps {
 
 const Input: React.FC<
   React.HTMLProps<HTMLInputElement | HTMLTextAreaElement> & InputProps
-> = ({ label, type, name, value, onChange, icon, error, ...props }) => {
+> = ({ label, type, name, value, icon, error, ...props }) => {
   const inputElement =
     type && type.toLowerCase() === "textarea" ? (
       <textarea

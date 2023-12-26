@@ -1,41 +1,44 @@
 {
-  "name": "backend",
-  "version": "0.1.0",
-  "private": true,
+  "name": "backend-v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "tsnd --respawn --transpile-only --exit-child src/app.ts",
+    "dev": "dotenv -e .env -- tsnd --respawn --transpile-only --exit-child src/app.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "fst": "node fst.js",
     "migrate": "dotenv -e .env -- pnpm prisma migrate dev",
     "prisma:reset:bdd": "dotenv -e .env -- pnpm prisma migrate reset",
-    "prisma:generate": "prisma generate"
+    "prisma:seed-dev": "dotenv -e .env -- tsnd bin/seeders/_main.ts",
+    "prisma:seed-units": "dotenv -e .env -- tsnd bin/seeders/base/1_units.ts",
+    "prisma:seed-ingredients": "dotenv -e .env -- tsnd bin/seeders/base/2_ingredients.ts",
+    "prisma:generate": "prisma generate",
+    "prisma:studio": "pnpm dotenv -e .env prisma studio"
   },
+  "keywords": [],
+  "license": "ISC",
   "dependencies": {
     "@fastify/cors": "^8.4.1",
     "@prisma/client": "^5.7.1",
+    "chalk": "^5.3.0",
     "commander": "^11.1.0",
+    "dotenv": "^16.3.1",
     "fastify": "^4.24.3",
     "fastify-zod": "^1.4.0",
     "fs-extra": "^11.1.1",
-    "next": "14.0.0",
     "path": "^0.12.7",
-    "react": "^18",
-    "react-dom": "^18",
-    "ts-node-dev": "^2.0.0",
     "zod": "^3.22.4",
     "zod-to-json-schema": "^3.21.4"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "dotenv": "^16.3.1",
+    "@types/node": "^20.10.5",
     "eslint": "^8",
     "eslint-config-next": "14.0.0",
     "prisma": "^5.7.1",
-    "typescript": "^5"
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
   },
   "bin": {
     "fst": "./fst.js"
