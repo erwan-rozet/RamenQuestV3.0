@@ -1,33 +1,35 @@
-import prisma from "../../../src/utils/prisma";
-import ingredients from "../../data/ingredients";
+import prisma from "../../../src/utils/prisma"
+import ingredientsData from "../../data/ingredients"
+import { colors } from "../../../ANSI_colors"
 
-// async function run() {
-//   const result = await seedIngredients();
-//   console.log(result);
-// }
 
 export default async function seedIngredients() {
   const counter = await prisma.ingredient.count()
+  const units = await prisma.unit.findMany()
+  const unitsMap = new Map<string, number>()
+  units.forEach((item) => unitsMap.set(item.name, item.id))
+  console.log(`unitsMap ===== `, unitsMap)
+
   if (counter < 1) {
-    const ingredientsData = ingredients.map((item) => ({
+    const ingredients = ingredientsData.map((item) => ({
       name: item.name,
-      unit: { create: { name: item.unit } }, // Create the unit if it doesn't exist
-      quantity: { create: { quantity: item.quantity } }, // Create the quantity if it doesn't exist
-    }));
+      quantity: item.quantity,
+      // unit: item.unit,
+      unitId: unitsMap.get(item.unit) ?? 0
+    }))
 
     await prisma.ingredient.createMany({
-      data: ingredientsData,
+      data: ingredients,
     })
 
-    // Green color
-    console.info("\x1b[32m%s\x1b[0m", "Success: Ingredients seeded")
+    console.info(`${colors.green}, Success: Ingredients seeded`)
+    return
+
   }
 
-  // Yellow color
-  console.info("\x1b[33m%s\x1b[0m", "Failed: there's already data in Ingredients table, seeding ignored.")
+  console.info(`${colors.orange}, Warning: there's already data in Ingredients table, seeding ignored.`)
+  return
 
 }
 
 
-// // Call the function to execute the script
-// run();

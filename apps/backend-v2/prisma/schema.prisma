@@ -21,26 +21,18 @@ model Recipe {
 model Ingredient {
   id Int @id @default(autoincrement())
   name String @unique
+  quantity String?
 
   recipes IngredientsOnRecipes[]
 
   unitId Int
   unit Unit @relation(fields: [unitId], references: [id])
 
-  quantityId Int
-  quantity Quantity @relation(fields: [quantityId], references: [id])
 }
 
 model Unit {
   id Int @id @default(autoincrement())
   name String @unique
-
-  ingredients Ingredient[]
-}
-
-model Quantity {
-  id Int @id @default(autoincrement())
-  quantity String
 
   ingredients Ingredient[]
 }

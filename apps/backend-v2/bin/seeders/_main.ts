@@ -18,17 +18,17 @@ async function main() {
       default: (force?: boolean) => Promise<string>
     }
     const text = args[args.length - 1] === "force" ? await f(true) : await f()
-    console.log(
-      (i + 1).toString().padStart(2) + "/" + files.length.toString(),
-      text.padEnd(7),
-      path
-    )
+    // console.log(
+    //   (i + 1).toString().padStart(2) + "/" + files.length.toString(),
+    //   text.padEnd(7),
+    //   path
+    // )
   }
 }
 
 main()
   .then(async () => {
-    console.info("\x1b[32m%s\x1b[0m", "Success")
+    console.info("\x1b[32m%s\x1b[0m", "Success on _main.ts")
     await prisma.$disconnect()
   })
   .catch(async (e) => {

@@ -1,31 +1,34 @@
 import prisma from "../../../src/utils/prisma";
 import frenchUnits from "../../data/frenchUnits";
+import imperialUnits from "../../data/imperialUnits";
+import { colors } from "../../../ANSI_colors"
 
-// async function run() {
-//   const result = await seedUnits();
-//   console.log(result);
-// }
 
 export default async function seedUnits() {
   const counter = await prisma.unit.count();
-  // Blue color
-  console.info('\x1b[34m%s\x1b[0m', `Unit counter ===== ${counter}`);
 
   if (counter < 1) {
-    await prisma.unit.createMany({
-      data: frenchUnits.map((unit) => ({
-        name: unit
-      }))
-    });
+    await prisma.$transaction([
+      prisma.unit.deleteMany(),
+      prisma.unit.createMany({
+        data: frenchUnits.map((unit) => ({
+          name: unit
+        }))
+      }),
+      prisma.unit.createMany({
+        data: imperialUnits.map((unit) => ({
+          name: unit
+        }))
+      })
+    ])
 
-    // Green color
-    console.info("\x1b[32m%s\x1b[0m", "Success: Units seeded")
+
+    console.info(`${colors.green}, Success: Units seeded`)
+    return
+
   }
 
-  // Yellow color
-  console.info("\x1b[33m%s\x1b[0m", "Failed: there's already data in Unit table, seeding ignored.")
+  console.info(`${colors.orange}, Warning: there's already data in Unit table, seeding ignored.`)
+  return
 
 }
-
-// // Call the function to execute the script
-// run();
