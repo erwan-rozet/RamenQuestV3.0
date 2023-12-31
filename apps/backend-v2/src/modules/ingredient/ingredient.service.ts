@@ -3,9 +3,8 @@ import prisma from "../../utils/prisma";
 import { CreateIngredientInput } from "./ingredient.schema";
 
 export async function createIngredient(data: CreateIngredientInput) {
-  // console.log("---------typeof data = ", typeof data)
   return await prisma.ingredient.create({
-    data,
+    data
   });
 }
 
@@ -13,10 +12,6 @@ export async function createIngredient(data: CreateIngredientInput) {
 export async function getIngredientsList() {
   const result = await prisma.ingredient.findMany({
   })
-
-  console.log(`Service result_____________`)
-  console.log(result)
-  console.log(`Service result_____________`)
 
   return result
 }

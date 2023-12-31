@@ -1,5 +1,4 @@
 import { CreateRecipeInput } from "./recipe.schema";
-
 import prisma from "../../utils/prisma";
 
 export async function createRecipe(input: CreateRecipeInput) {
@@ -10,12 +9,11 @@ export async function createRecipe(input: CreateRecipeInput) {
       title,
       description,
       ingredients: {
-        create: ingredient.map((name) => ({
-          // quantity: "100g",
+        create: ingredient.map(({ name, unitId, quantity }) => ({
           ingredient: {
             connectOrCreate: {
               where: { name },
-              create: { name },
+              create: { name, quantity, unitId },
             },
           },
         })),
@@ -27,10 +25,8 @@ export async function createRecipe(input: CreateRecipeInput) {
   return newRecipe;
 }
 
+
 export async function getRecipesList() {
   const list = await prisma.recipe.findMany({}
   )
-  console.log('Recipes list ===== ')
-  console.log(list)
-  console.log('Recipes list _____ ')
 }

@@ -4,7 +4,11 @@ import { buildJsonSchemas } from "fastify-zod";
 const recipeInputSchema = z.object({
   title: z.string(),
   description: z.string(),
-  ingredient: z.array(z.string()),
+  ingredient: z.array(z.object({
+    name: z.string(),
+    quantity: z.string().nullable().optional(),
+    unitId: z.number()
+  })),
 })
 
 const recipeListSchema = z.array(z.object({

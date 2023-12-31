@@ -3,6 +3,7 @@ import { CgChevronDownO } from "react-icons/cg"
 import { BiChevronUpCircle } from "react-icons/bi"
 import { LuChevronDownSquare } from "react-icons/lu"
 import { LuChevronUpSquare } from "react-icons/lu"
+import Image from "next/image"
 
 interface CardProps {
   title: string
@@ -23,7 +24,7 @@ const Card: React.FC<CardProps> = ({
 }) => {
   return (
     <div className={`card ${classes.cardContainer}`} onClick={onClick}>
-      {imageUrl && <img src={imageUrl} alt={title} />}
+      {imageUrl && <Image src={imageUrl} alt={title} />}
       <div className={classes.cardContent}>
         <div className={classes.titleContainer}>
           <h3 className={classes.cardTitle}>{title}</h3>

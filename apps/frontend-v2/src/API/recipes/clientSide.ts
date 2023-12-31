@@ -1,5 +1,5 @@
 import AxiosInstance from "../axiosInstance"
-import { CreateRecipeInput } from "../../../../backend/src/modules/recipe/recipe.schema"
+import { CreateRecipeInput } from "../../../../backend-v2/src/modules/recipe/recipe.schema"
 
 
 interface NewRecipe {

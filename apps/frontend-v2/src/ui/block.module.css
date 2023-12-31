@@ -15,8 +15,8 @@
 
   /* height: auto; */
   /* max-height: max-content; */
-  background-color: var(--color-light-grey);
-  border-radius: var(--radius-large);
+  background-color: var(--color-primary-foreground-opacity);
+  border-radius: var(--radius-medium);
   box-shadow: var(--shadow);
 }
 

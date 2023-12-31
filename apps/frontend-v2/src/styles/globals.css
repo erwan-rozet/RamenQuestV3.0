@@ -2,6 +2,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Condensed:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Poppins&family=Roboto+Condensed:wght@300&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Mulish:wght@300&family=Poppins&family=Roboto+Condensed:wght@300&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&family=Mulish:wght@300&family=Poppins&family=Roboto+Condensed:wght@300&display=swap");
+
 ::before,
 ::after {
   box-sizing: border-box;
@@ -25,7 +29,16 @@ figure {
 }
 
 body {
-  background-color: var(--color-background);
+  background-image: url("../../public/ramen1.jpg");
+  background-position: right 50% top 30%;
+  background-size: cover;
+  /* background-size: contain;  */
+
+  background-repeat: no-repeat;
+
+  /* optionnel, pour fixer l'image de fond */
+  /* background-attachment: fixed; */
+  /* background-color: var(--color-background); */
 }
 
 * {
@@ -35,30 +48,46 @@ body {
 
 :root {
   --color-primary-foreground: #fff;
+  --color-primary-foreground-opacity: #ffffffe0;
 
   --greyPrimary: #a5a5a5;
 
   --color-primary: #719ba6a9;
   --color-success: #5fc891;
   --color-light-grey: #f5faf9;
-  --color-background: #eef3f5;
+  --color-background: #f2f6f7b4;
   --color-dark-grey: rgb(100, 100, 100);
+
+  --color-dark-blue: #18534f;
+  --color-duck-blue: #226d68;
+  --color-light-blue: #ecf8f6;
+  --color-noodles: #feeaa1;
+  --color-noodles-opacity: #feeaa19d;
+  --color-brown: #d6955b;
 
   --radius-small: 3px;
   --radius-medium: 6px;
+  --radius-medium-large: 9px;
   --radius-large: 12px;
 
   --sideBar-width: 15%;
   --navBar-width: 17%;
   --block-width: auto;
 
-  --border: 1px solid var(--color-dark-grey);
+  --border: 1px var(--color-dark-grey);
 
-  --shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+  --shadow: rgba(22, 55, 80, 0.131) 0px 1px 2px 0px,
     rgba(102, 103, 104, 0.15) 0px 1px 3px 1px;
 
   /* --shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
   --shadow-right: 5px 0px 10px rgba(0, 0, 0, 0.5);
+
+  /* Palette de couleurs
+bleu foncé : #18534F
+bleu canard : #226D68
+light grey blue : #ECF8F6
+sand: #FEEAA1
+brown : #D6955B */
 }
 
 a {

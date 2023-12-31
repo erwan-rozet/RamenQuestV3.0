@@ -2,7 +2,7 @@
   display: flex;
   margin-left: 8px;
   padding: 5px;
-  border-left: 3px solid var(--color-dark-grey);
+  border-left: 3px solid var(--color-dark-blue);
   margin: 5px;
 }
 
@@ -23,7 +23,7 @@
 
 .cardIcon {
   margin-left: auto;
-  color: var(--color-dark-grey);
+  color: var(--color-dark-blue);
   font-size: large;
 }
 

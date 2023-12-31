@@ -1,5 +1,5 @@
 import AxiosInstance from '../axiosInstance'
-import { IngredientsListResponseSchema } from '../../../../backend/src/modules/ingredient/ingredient.schema'
+import { IngredientsListResponseSchema } from '../../../../backend-v2/src/modules/ingredient/ingredient.schema'
 
 
 export const getIngredientsList = async () => {

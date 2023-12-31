@@ -63,7 +63,7 @@ const IngredientSelector: React.FC = () => {
               ))}
           </Field>
 
-          <Button type="submit">"Console.log() la value sélectionnée"</Button>
+          <Button type="submit">Console.log() la value sélectionnée</Button>
         </Form>
       </FormikProvider>
     </>

@@ -5,7 +5,7 @@ import Input from "../input"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { postRecipe } from "@/API/recipes/clientSide"
 import { showToastMessage } from "@/helpers/toaster"
-import { RecipeList } from "../../../../backend/src/modules/recipe/recipe.schema"
+import { RecipeList } from "../../../../backend-v2/src/modules/recipe/recipe.schema"
 
 const RecipeForm: React.FC = () => {
   const queryClient = useQueryClient()

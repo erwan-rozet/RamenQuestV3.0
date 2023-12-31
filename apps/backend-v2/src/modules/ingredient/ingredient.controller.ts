@@ -22,11 +22,6 @@ export async function getIngredientsListHandler(
 ) {
   try {
     const list = await getIngredientsList()
-
-    console.log(`Controller list_____________, }`)
-    console.log(list)
-    console.log(`Controller list_____________, `)
-
     return reply.send(list)
   } catch (error) {
     console.log(`Response status code: ${reply.statusCode}`);

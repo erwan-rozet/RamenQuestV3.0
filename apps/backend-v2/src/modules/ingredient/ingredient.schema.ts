@@ -4,6 +4,8 @@ import { z } from "zod";
 
 const ingredientInputSchema = z.object({
   name: z.string(),
+  unitId: z.number(),
+  quantity: z.string().optional().nullable()
 });
 
 const ingredientsListResponseSchema = z.object({
