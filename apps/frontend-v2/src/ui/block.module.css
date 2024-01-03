@@ -5,12 +5,14 @@
 
 .mainElement {
   display: flex;
-  padding: 5%;
+  padding: 2%;
   width: var(--block-width);
   margin-right: 5%;
   margin-left: 20%;
   margin-bottom: 3%;
   margin-top: 8%;
+  flex-direction: column;
+  justify-content: flex-end;
   border: var(--border);
 
   /* height: auto; */
@@ -25,8 +27,22 @@
 }
 
 .titleFixed {
-  position: fixed;
+  /* position: fixed; */
+  text-transform: uppercase;
+  color: var(--color-dark-blue);
   /* left: 0;
   top: 0;
   bottom: 0; */
+}
+
+.children {
+  display: flex; /* Utiliser le modèle de boîte flexible pour aligner les enfants */
+  flex-direction: row; /* Disposition horizontale des enfants */
+  padding: 5%;
+}
+
+/* Ajouter un peu d'espace entre les enfants si nécessaire */
+.children > * {
+  margin-right: 10px;
+  flex-grow: 1;
 }

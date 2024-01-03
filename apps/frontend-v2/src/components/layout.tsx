@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react"
 import SideMenu from "./sideMenu"
-import NavBar from "./navbar"
+import NavBar from "./layout-navbar"
 import Image from "next/image"
 
 interface LayoutProps {

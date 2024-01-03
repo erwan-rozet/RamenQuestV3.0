@@ -36,7 +36,7 @@
   /* bottom: 0; */
   height: 5%;
   width: var(--navBar-width);
-  color: var(--color-dark-grey);
+  color: var(--color-dark-blue);
   border: var(--border);
 
   background-color: var(--color-primary-foreground-opacity);

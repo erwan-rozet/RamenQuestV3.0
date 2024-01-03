@@ -6,9 +6,23 @@ import { useMutation, useQueryClient } from "@tanstack/react-query"
 import { postRecipe } from "@/API/recipes/clientSide"
 import { showToastMessage } from "@/helpers/toaster"
 import { RecipeList } from "../../../../backend-v2/src/modules/recipe/recipe.schema"
+import Preview from "@/components/preview"
+// import IngredientSelector from "@/ui/forms/ingredientSelector"
+import { useState } from "react"
+import Select from "../select"
+import { IngredientsListResponseSchema } from "../../../../backend-v2/src/modules/ingredient/ingredient.schema"
 
-const RecipeForm: React.FC = () => {
+interface FormProps {
+  ingredients: IngredientsListResponseSchema[]
+}
+const RecipeForm: React.FC<FormProps> = (props) => {
+  const { ingredients } = props
   const queryClient = useQueryClient()
+  const [title, setTitle] = useState("")
+  const [description, setDescription] = useState("")
+  const [selectedIngredients, setSelectedIngredients] = useState<string[]>([])
+
+  console.log(`ingredients ===== `, ingredients)
 
   // Validation schema
   const validationSchema = Yup.object().shape({
@@ -36,10 +50,6 @@ const RecipeForm: React.FC = () => {
     // cookTime: "",
     // totalTime: "",
     // servings: "",
-    // calories: "",
-    // fat: "",
-    // carbs: "",
-    // protein: "",
   }
 
   // Form declaration
@@ -68,16 +78,22 @@ const RecipeForm: React.FC = () => {
     },
     onError: (error: string) => alert(JSON.stringify(error, null, 2)),
   })
-  // const mutation = useMutation(postRecipe, {
-  //   onSuccess: (data) => {
-  //     showToastMessage("Recette créée", "success", true)
-  //     const previousRecipesList: RecipeList[] =
-  //       queryClient.getQueryData(["myRecipes"]) || []
-  //     queryClient.setQueryData(["myRecipes"], [...previousRecipesList, data])
-  //     formik.resetForm()
-  //   },
-  //   onError: (error: string) => alert(JSON.stringify(error, null, 2)),
-  // })
+
+  function handleChangeTitle(event: React.ChangeEvent<HTMLInputElement>) {
+    setTitle(event.target.value)
+  }
+  function handleChangeDescription(event: React.ChangeEvent<HTMLInputElement>) {
+    setDescription(event.target.value)
+  }
+  function handleChangeIngredients(
+    event: React.ChangeEvent<HTMLSelectElement>,
+  ) {
+    const selectedIngredient = event.target.value
+    setSelectedIngredients((prevIngredients: string[]) => [
+      ...prevIngredients,
+      selectedIngredient,
+    ])
+  }
 
   return (
     <>
@@ -90,8 +106,8 @@ const RecipeForm: React.FC = () => {
             label={"Title"}
             type="text"
             as={Input}
-            onChange={formik.handleChange}
-            value={formik.values.title}
+            onChange={handleChangeTitle}
+            value={title}
             error={{
               name: formik.errors.title,
               touched: formik.touched.title,
@@ -100,17 +116,22 @@ const RecipeForm: React.FC = () => {
           <Field
             id="ingredient"
             name="ingredient"
-            // placeholder="Ingredient"
             label={"Ingredient"}
-            type="text"
-            as={Input}
-            onChange={formik.handleChange}
-            value={formik.values.ingredient}
+            type="select"
+            as={Select}
+            onChange={handleChangeIngredients}
+            value={selectedIngredients}
             error={{
               name: formik.errors.ingredient,
               touched: formik.touched.ingredient,
             }}
-          ></Field>
+          >
+            {Object.entries(ingredients).map(([key, ingredient]) => (
+              <option key={key} value={ingredient.name}>
+                {ingredient.name}
+              </option>
+            ))}
+          </Field>
           <Field
             id="description"
             name="description"
@@ -118,44 +139,21 @@ const RecipeForm: React.FC = () => {
             label={"Description"}
             type="text"
             as={Input}
-            onChange={formik.handleChange}
-            value={formik.values.description}
+            onChange={handleChangeDescription}
+            value={description}
             error={{
               name: formik.errors.description,
               touched: formik.touched.description,
             }}
           ></Field>
-          {/* <Field
-            id="unit"
-            name="unit"
-            // placeholder="Unit"
-            label="Unit"
-            type="text"
-            as={Input}
-          ></Field>
-          <Field
-            id="instructions"
-            name="instructions"
-            type="textarea"
-            // placeholder="Instructions"
-            label="Instructions"
-            as={Input}
-          ></Field>
-          <Field
-            id="step 1"
-            name="step 1"
-            type="textarea"
-            // placeholder="step 1"
-            label="step 1"
-            as={Input}
-          ></Field> */}
-
-          {/* <Button margin={"20px"} type="submit">
-            Add step
-          </Button> */}
           <Button type="submit">Créer la recettte</Button>
         </Form>
       </FormikProvider>
+      <Preview
+        title={title}
+        description={description}
+        ingredients={selectedIngredients}
+      ></Preview>
     </>
   )
 }

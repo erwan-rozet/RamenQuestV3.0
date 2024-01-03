@@ -18,6 +18,8 @@
 
 .cardTitle {
   padding-bottom: 10px;
+  color: var(--color-dark-blue);
+
   width: auto;
 }
 

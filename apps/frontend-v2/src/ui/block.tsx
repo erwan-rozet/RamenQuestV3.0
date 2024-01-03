@@ -12,10 +12,9 @@ const Block: React.FC<BlockProps> = (props) => {
   return (
     <>
       <div className={classes.mainElement}>
-        <div className={classes.titleFixed}></div>
-        <div className={classes.txt}></div>
-        <div className={classes.titleFixed}></div>
-        <h1>{children}</h1>
+        <h3 className={classes.titleFixed}>{title}</h3>
+        <div className={classes.txt}>{secondTitle}</div>
+        <div className={classes.children}>{children}</div>
       </div>
     </>
   )

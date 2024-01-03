@@ -1,7 +1,7 @@
 import classes from "../components/layout.module.css"
 
-const NavBar: React.FC = () => {
+const LayoutNavBar: React.FC = () => {
   return <div className={classes.navBar}></div>
 }
 
-export default NavBar
+export default LayoutNavBar
