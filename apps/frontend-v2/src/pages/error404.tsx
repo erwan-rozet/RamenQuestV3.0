@@ -2,6 +2,7 @@
 import { useRouter } from "next/router"
 import Button from "@/ui/button"
 import classes from "../pages/404.module.css"
+import Image from "next/image"
 
 const Error404: React.FC = () => {
   const router = useRouter()
@@ -14,12 +15,12 @@ const Error404: React.FC = () => {
       </div>
       <h1 className={classes.spacer}>404</h1>
       <h1 className={classes.spacer}>
-        This is not the ramen bowl you're looking for...
+        This is not the ramen bowl you&apos;re looking for...
       </h1>
       <Button
         margin={dynamicMargin}
         type="button"
-        color="success"
+        color="noodles"
         onClick={() => router.push("/")}
       >
         Back Home

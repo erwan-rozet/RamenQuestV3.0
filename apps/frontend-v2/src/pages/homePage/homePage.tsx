@@ -3,7 +3,7 @@ import classes from "./homePage.module.css"
 // import SearchBar from "../SearchBar/SearchBar";
 import React, { FC } from "react"
 import NavHomeMenu from "./navHomeMenu"
-
+import Image from "next/image"
 
 const HomePage: React.FC = () => {
   return (
@@ -13,10 +13,10 @@ const HomePage: React.FC = () => {
       </div>
       <h2 className={classes.h2}>ラーメンクエスト</h2>
       <div className={classes.steamContainer}>
-        <img src="steam1.png" className={classes.steam}></img>
+        <img src="steam1.png" alt="steam" className={classes.steam} />
       </div>
       <div className={classes.steamContainer2}>
-        <img src="steam1.png" className={classes.steam2}></img>
+        <img src="steam1.png" alt="steam" className={classes.steam2} />
       </div>
 
       <div className={classes.navMenu}>

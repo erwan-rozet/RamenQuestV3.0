@@ -70,16 +70,16 @@
     "scope": "javascript,typescript, typescriptreact",
     "prefix": "clgd",
     "body": [
-      "console.log('${1:}_____')",
+      "console.log('${1:} ===== ')",
       "console.log(${1:})",
-      "console.log('${1:}_____')"
+      "console.log('${1:} _____ ')"
     ],
     "description": "Log output to console"
   },
   " console.log": {
     "scope": "javascript,typescript, typescriptreact",
     "prefix": "clg",
-    "body": ["console.log(`${1:}_____`, ${1:})"],
+    "body": ["console.log(`${1:} ===== `, ${1:})"],
     "description": "Log output to console"
   }
 }

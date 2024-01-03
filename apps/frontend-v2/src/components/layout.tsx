@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react"
 import SideMenu from "./sideMenu"
-import NavBar from "./navbar"
+import NavBar from "./layout-navbar"
+import Image from "next/image"
 
 interface LayoutProps {
   children: ReactNode
@@ -11,6 +12,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <>
       <NavBar></NavBar>
       <SideMenu />
+
       <main>{children}</main>
     </>
   )

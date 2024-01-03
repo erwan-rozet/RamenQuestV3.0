@@ -16,6 +16,7 @@ const Button: React.FC<ButtonProps> = ({ children, margin, ...props }) => {
   function classesNamesProvider() {
     let classesNames = `${classes.btn}`
     if (props.color === "success") classesNames += ` ${classes.btnSuccess}`
+    if (props.color === "noodles") classesNames += ` ${classes.btnNoodles}`
     return classesNames
   }
   //

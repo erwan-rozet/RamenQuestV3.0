@@ -26,7 +26,7 @@ const SideMenu: React.FC = () => {
           <Link href={"/"}>
             <Image
               className={classes.pictoSideBar}
-              src={"/black-bowl.svg"}
+              src={"/blue-bowl.svg"}
               alt={"smoking ramen bowl"}
               width={45}
               height={45}
