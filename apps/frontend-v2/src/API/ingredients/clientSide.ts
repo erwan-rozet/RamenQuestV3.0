@@ -7,6 +7,5 @@ export const getIngredientsList = async () => {
     "api/ingredients/ingredientsList"
   )
   console.log('call api getIngredientsList_____________')
-  console.log(`response.data ===== `, response.data)
   return response.data
 }

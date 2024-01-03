@@ -22,8 +22,6 @@ const RecipeForm: React.FC<FormProps> = (props) => {
   const [description, setDescription] = useState("")
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([])
 
-  console.log(`ingredients ===== `, ingredients)
-
   // Validation schema
   const validationSchema = Yup.object().shape({
     title: Yup.string().required("Title is required"),

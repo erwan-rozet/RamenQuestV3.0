@@ -32,6 +32,5 @@ export const postRecipe = async (data: NewRecipe) => {
       data
     )
   console.log('call api postRecipe_____________')
-  console.log(`response ===== `, response)
   return response
 }
